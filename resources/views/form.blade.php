@@ -1,5 +1,5 @@
-
-<form action="/form" method="post">
+<form action="{{ route('submit.form') }}" method="post">
+@csrf
     <div class="form-group">
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" class="form-control">
@@ -21,7 +21,7 @@
 
     <div class="form-group">
         <label for="date">Date de naissance :</label>
-        <input type="date" name="date_naissance" id="date" class="form-control">
+        <input type="date" name="date" id="date" class="form-control">
     </div>
 
     <div class="form-group">
@@ -30,35 +30,35 @@
     </div>
 
     <div class="form-group">
-        <label for="nom_site_pratique">Nom du site de pratique :</label>
-        <input type="text" name="nom_site_pratique" id="nom_site_pratique" class="form-control">
-    </div>
+    <label for="nom_site_pratique">Nom du site de pratique :</label>
+    <input type="text" name="nom_site_pratique" id="nom_site_pratique" class="form-control">
+</div>
 
-    <div class="form-group">
-        <label for="commune">Commune :</label>
-        <input type="text" name="commune" id="commune" class="form-control">
-    </div>
+<div class="form-group">
+    <label for="commune">Commune :</label>
+    <input type="text" name="commune" id="commune" class="form-control">
+</div>
 
-    <div class="form-group">
-        <label for="description">Description :</label>
-        <textarea name="description" id="description" class="form-control" rows="5"></textarea>
-    </div>
+<div class="form-group">
+    <label for="description">Description :</label>
+    <textarea name="description" id="description" class="form-control" rows="5"></textarea>
+</div>
 
-    <div class="form-group">
-        <label for="analyse_evenement">Analyse de l'événement :</label>
-        <textarea name="analyse_evenement" id="analyse_evenement" class="form-control" rows="5"></textarea>
-    </div>
+<div class="form-group">
+    <label for="analyse_evenement">Analyse de l'événement :</label>
+    <textarea name="analyse_evenement" id="analyse_evenement" class="form-control" rows="5"></textarea>
+</div>
 
-    <div class="form-group">
+<div class="form-group">
     <label for="choix">Votre avis sur l'activité :</label>
     <select name="choix" id="choix" class="form-control">
-        <option value="option1">Très bien</option>
-        <option value="option2">Bien</option>
-        <option value="option3">Passable</option>
-        <option value="option4">Mauvais</option> 
-        <option value="option5">Très mauvais</option> 
+        <option value="Très bien">Très bien</option>
+        <option value="Bien">Bien</option>
+        <option value="Passable">Passable</option>
+        <option value="Mauvais">Mauvais</option>
+        <option value="Très mauvais">Très mauvais</option>
     </select>
-    </div>
+</div>
     {!! NoCaptcha::renderJs() !!}
     {!! NoCaptcha::display() !!}
 
@@ -69,6 +69,11 @@
     <span class="help-block">
         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
     </span>
+@endif
+@if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
 @endif
 
 <style>
@@ -119,7 +124,7 @@ input, select, textarea {
 }
 
 /* Ajoutez des styles au bouton Envoyer */
-button[type="submit"] {
+input[type="submit"] {
     background-color: #ccd100; /* Vert */
     color: white;
     padding: 12px 20px; /* Ajustez la taille du bouton */
@@ -130,7 +135,7 @@ button[type="submit"] {
     width: 100%;
 }
 
-button[type="submit"]:hover {
+input[type="submit"]:hover {
     background-color: #45a049; /* Variation de couleur au survol */
 }
 

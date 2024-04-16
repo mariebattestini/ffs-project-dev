@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id(); // Ajoute une colonne 'id' auto-incrémentée comme clé primaire
             $table->string('nom');
             $table->string('prenom');
-            $table->date('date_naissance');
+            $table->date('date');
             $table->string('activite');
             $table->string('nom_site_pratique');
             $table->string('commune');

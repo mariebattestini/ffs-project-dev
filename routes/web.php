@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ValidateFormController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,11 +19,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+require __DIR__ . '/auth.php';
+
+Route::post('/submit-form', [FormController::class, 'store'])->name('submit.form');
 Route::get('/partager-experience', function () {
     return view('form');
 })->name('form');
-
-Route::post('/form', [FormController::class, 'store']);
-
-
-require __DIR__ . '/auth.php';

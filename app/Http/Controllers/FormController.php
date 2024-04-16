@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Form;
 
-class Form extends Controller
+
+class FormController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,29 +19,33 @@ class Form extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        $form = new Form();
-        $form->nom = $request->nom;
-        $form->prenom = $request->prenom;
-        $form->phone_number = $request->phone_number;
-        $form->email = $request->email;
-        $form->date_of_birth = $request->date_of_birth;
-        $form->save();
+        // Validation des données
+        $validatedData = $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'numero' => 'required',
+            'email' => 'required',
+            'date' => 'required',
+            'activite' => 'required',
+            'nom_site_pratique' => 'required',
+            'commune' => 'required',
+            'description' => 'required',
+            'analyse_evenement' => 'required',
+            'choix' => 'required',
+        ]);
 
-        return redirect("/form");
+        // Création d'une nouvelle instance du modèle Form
+        $form = Form::create($validatedData);
+
+        // Vérifier si l'enregistrement a réussi
+        dd($form);
+
+        return redirect()->route('form')->with('success', 'Le formulaire a été validé !');
     }
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         //
