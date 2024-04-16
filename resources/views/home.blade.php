@@ -36,9 +36,7 @@
         </section>
  
         <section id="CTA">
-            <button>
-                <h2>Partager son expérience</h2>
-            </button>
+            <button onclick="window.location='{{ route('form') }}'">Partager son expérience</button>
             <button onclick="window.location='{{ route('register') }}'">Devenir modérateur</button>
         </section>
  

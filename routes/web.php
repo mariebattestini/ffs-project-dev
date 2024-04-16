@@ -22,5 +22,7 @@ Route::get('/partager-experience', function () {
     return view('form');
 })->name('form');
 
+Route::post('/form', [FormController::class, 'store']);
+
 
 require __DIR__ . '/auth.php';

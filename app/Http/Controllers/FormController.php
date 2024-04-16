@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Moderation extends Controller
+class Form extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,9 +27,16 @@ class Moderation extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $form = new Form();
+        $form->nom = $request->nom;
+        $form->prenom = $request->prenom;
+        $form->phone_number = $request->phone_number;
+        $form->email = $request->email;
+        $form->date_of_birth = $request->date_of_birth;
+        $form->save();
 
+        return redirect("/form");
+    }
     /**
      * Display the specified resource.
      */
