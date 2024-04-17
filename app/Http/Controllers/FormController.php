@@ -41,10 +41,11 @@ class FormController extends Controller
         // Création d'une nouvelle instance du modèle Form
         $form = Form::create($validatedData);
 
-        // Vérifier si l'enregistrement a réussi
-        dd($form);
-        dd($request->all());
-        return redirect()->route('form')->with('success', 'Expérience enregistrée avec succès.');
+        // Ajouter un message de succès à la session flash
+        $request->session()->flash('success', 'Expérience enregistrée avec succès.');
+
+        // Rediriger vers la page d'accueil
+        return redirect('/');
     }
 
     public function show(string $id)

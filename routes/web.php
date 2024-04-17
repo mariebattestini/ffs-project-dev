@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -44,3 +45,24 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::post('/experiences/{experience}/publish', [ExperienceController::class, 'publish'])->name('experiences.publish');
 });
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/', function () {
+    $publishedExperiences = App\Models\Experience::whereNotNull('published_at')->get();
+    return view('home', compact('publishedExperiences'));
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/experiences/{experience}/edit', [ExperienceController::class, 'edit'])->name('experiences.edit');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::put('/experiences/{experience}', [ExperienceController::class, 'update'])->name('experiences.update');
+});
+
+Route::get('/experiences/{experience}/edit', [ExperienceController::class, 'edit'])->name('experiences.edit');
+Route::put('/experiences/{experience}', [ExperienceController::class, 'update'])->name('experiences.update');
+

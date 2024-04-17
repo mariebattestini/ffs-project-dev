@@ -27,13 +27,20 @@ class ExperienceController extends Controller
         $experience->published_at = now();
         $experience->save();
 
-        return redirect()->route('experiences.index')->with('success', 'L\'expérience a été publiée avec succès.');
+        return redirect('/')->with('success', 'L\'expérience a été publiée avec succès.');
     }
+
 
     public function create()
     {
         //
     }
+    public function edit(Experience $experience)
+    {
+        return view('experiences.show', compact('experience'));
+    }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -46,23 +53,31 @@ class ExperienceController extends Controller
     /**
      * Display the specified resource.
      */
+    // Contrôleur ExperienceController
     public function show(Experience $experience)
     {
         $experience->load('modifications');
         return view('experiences.show', compact('experience'));
     }
-    public function edit(string $id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Experience $experience)
     {
-        //
+        $validatedData = $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            // Ajoutez les règles de validation pour les autres champs
+        ]);
+
+        $experience->update($validatedData);
+
+        return redirect()->route('experiences.show', $experience->id)->with('success', 'L\'expérience a été modifiée avec succès.');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
