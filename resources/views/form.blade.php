@@ -11,7 +11,9 @@
     </div>
     <div class="form-group">
         <label for="email">Email :</label>
-        <input type="mail" name="email" id="email" class="form-control">
+        <input type="email" name="email" id="email" class="form-control">
+       
+
     </div>
     <div class="form-group">
         <label for="numero">Numéro de téléphone :</label>
@@ -67,7 +69,7 @@
     {!! NoCaptcha::renderJs() !!}
     {!! NoCaptcha::display() !!}
 
-    <input type="submit" class="btn btn-primary" value=Envoyer></input>
+    <input type="submit" onclick="return confirm('Êtes-vous sûr que vous voulez envoyer ce formulaire ?')" class="btn btn-primary" value=Envoyer></input>
 </form>
 
 @if ($errors->has('g-recaptcha-response'))

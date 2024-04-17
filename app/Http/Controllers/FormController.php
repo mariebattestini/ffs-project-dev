@@ -26,17 +26,23 @@ class FormController extends Controller
         $validatedData = $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
-            'numero' => 'required',
-            'email' => 'required',
-            'date' => 'required',
+            'numero' => 'required|numeric|digits:10', // Numéro de téléphone à 10 chiffres
+            'email' => 'required|email', // Format d'email valide
+            'date' => 'required|date_format:Y-m-d', // Format de date attendu : YYYY-MM-DD
             'activite' => 'required',
             'nom_site_pratique' => 'required',
             'commune' => 'required',
             'description' => 'required',
             'analyse_evenement' => 'required',
             'choix' => 'required',
-            'titre' => 'required'
+            'titre' => 'required|unique:posts|max:255'
+        ], [
+            'numero.numeric' => 'Le numéro de téléphone doit être un nombre.',
+            'numero.digits' => 'Le numéro de téléphone doit comporter 10 chiffres.',
+            'email.email' => 'L\'adresse email n\'est pas valide.',
+            'date.date' => 'La date n\'est pas valide.',
         ]);
+
 
         // Création d'une nouvelle instance du modèle Form
         $form = Form::create($validatedData);

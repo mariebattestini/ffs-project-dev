@@ -26,7 +26,6 @@
 
 
 
-
 <!-- Boutons pour publier et retourner à la liste -->
 <a id="button" href="{{ route('experiences.edit', $experience->id) }}">Modifier</a>
 
@@ -102,6 +101,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: medium;
+    margin-top: 2%;
     }
 
     button:hover, #button:hover{

@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     
                     <div class="p-6 text-gray-900">
-    <h1 class="text-2xl font-bold mb-4">Tableau des expériences non modérées et publiées</h1>
+    <h1 class="text-2xl font-bold mb-4">Tableau des expériences non modérées et non publiées</h1>
 
     <table class="w-full table-auto">
         <thead>

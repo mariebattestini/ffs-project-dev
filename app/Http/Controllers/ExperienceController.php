@@ -37,7 +37,7 @@ class ExperienceController extends Controller
     }
     public function edit(Experience $experience)
     {
-        return view('experiences.show', compact('experience'));
+        return view('experiences.edit', compact('experience'));
     }
 
 

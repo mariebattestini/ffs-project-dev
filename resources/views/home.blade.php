@@ -15,9 +15,10 @@
             <nav>
                 <button onclick="window.location='{{ route('form') }}'">Partager son expérience</button>
                 <button onclick="window.location='{{ route('register') }}'">Nous rejoindre</button>
+                <button onclick="window.location='{{ route('login') }}'">Espace modérateur</button>
+                <button onclick="window.location='{{ route('register') }}'">Créer un compte</button>
             </nav>
-            <button onclick="window.location='{{ route('login') }}'">Espace modérateur</button>
-            <button onclick="window.location='{{ route('register') }}'">Créer un compte</button>
+
     </header>
 
  
@@ -25,6 +26,10 @@
         <section id="hero">
             <h1>Retour d’expérience FFS</h1>
         </section>
+        <section>
+
+</section>
+
         <section>
     <h2>Expériences publiées</h2>
     <table>
