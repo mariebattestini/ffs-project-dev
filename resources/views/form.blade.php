@@ -23,7 +23,12 @@
         <label for="date">Date de naissance :</label>
         <input type="date" name="date" id="date" class="form-control">
     </div>
-
+    
+    <div class="form-group">
+        <label for="titre">Titre :</label>
+        <input type="titre" name="titre" id="titre" class="form-control">
+    </div>
+    
     <div class="form-group">
         <label for="activite">Activité concernée :</label>
         <input type="text" name="activite" id="activite" class="form-control">

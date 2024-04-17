@@ -9,11 +9,38 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("Tu es connecté !") }}
                     
-                </div>
-            </div>
-        </div>
+                    <div class="p-6 text-gray-900">
+    <h1 class="text-2xl font-bold mb-4">Tableau des expériences non modérées et publiées</h1>
 
+    <table class="w-full table-auto">
+        <thead>
+            <tr>
+                <th class="px-4 py-2">Date de soumission</th>
+                <th class="px-4 py-2">Activité</th>
+                <th class="px-4 py-2">Titre</th>
+                <th class="px-4 py-2">Nom du site de pratique</th>
+                <th class="px-4 py-2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach ($unpublishedExperiences as $experience)
+        <tr>
+            <td class="border px-4 py-2">{{ $experience->created_at->format('d/m/Y') }}</td>
+            <td class="border px-4 py-2">{{ $experience->activite }}</td>
+            <td class="border px-4 py-2">{{ $experience->titre }}</td>
+            <td class="border px-4 py-2">{{ $experience->nom_site_pratique }}</td>
+            <td class="border px-4 py-2">
+                <a href="{{ route('experiences.show', $experience->id) }}" class="text-blue-500 hover:text-blue-700">Voir</a>
+            </td>
+        </tr>
+    @endforeach
+        </tbody>
+    </table>
     </div>
+</div>
+</div>
+         
+</div>
+</div>
 </x-app-layout>

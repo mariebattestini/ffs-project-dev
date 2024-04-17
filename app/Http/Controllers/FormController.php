@@ -35,6 +35,7 @@ class FormController extends Controller
             'description' => 'required',
             'analyse_evenement' => 'required',
             'choix' => 'required',
+            'titre' => 'required'
         ]);
 
         // Création d'une nouvelle instance du modèle Form
@@ -42,8 +43,8 @@ class FormController extends Controller
 
         // Vérifier si l'enregistrement a réussi
         dd($form);
-
-        return redirect()->route('form')->with('success', 'Le formulaire a été validé !');
+        dd($request->all());
+        return redirect()->route('form')->with('success', 'Expérience enregistrée avec succès.');
     }
 
     public function show(string $id)
