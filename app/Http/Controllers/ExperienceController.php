@@ -37,7 +37,7 @@ class ExperienceController extends Controller
     }
     public function edit(Experience $experience)
     {
-        return view('experiences.edit', compact('experience'));
+        return view('edit', compact('experience'));
     }
 
 
@@ -66,16 +66,19 @@ class ExperienceController extends Controller
      */
     public function update(Request $request, Experience $experience)
     {
-        $validatedData = $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
-            // Ajoutez les règles de validation pour les autres champs
-        ]);
+        // Mettre à jour les champs de l'expérience avec les données du formulaire
+        $experience->update($request->all());
 
-        $experience->update($validatedData);
+        // Enregistrer la modification dans le tableau
+        $modification = new Modification();
+        $modification->experience_id = $experience->id;
+        $modification->moderateur_id = Auth::id(); // Supposant que vous avez un utilisateur authentifié
+        $modification->save();
 
-        return redirect()->route('experiences.show', $experience->id)->with('success', 'L\'expérience a été modifiée avec succès.');
+        return redirect()->back()->with('success', 'L\'expérience a été modifiée avec succès.');
+
     }
+
 
 
 

@@ -24,7 +24,11 @@
     @endforeach
 @endif
 
-
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
 <!-- Boutons pour publier et retourner à la liste -->
 <a id="button" href="{{ route('experiences.edit', $experience->id) }}">Modifier</a>
@@ -121,3 +125,5 @@
 #retour:hover {
   background-color: #5a6268;
 }
+
+</style>
