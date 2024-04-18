@@ -16,5 +16,14 @@ class Modification extends Model
     }
 
     protected $table = 'modifications';
+    public function modifications()
+    {
+        return $this->hasMany(Modification::class);
+    }
+
+    public function moderateur()
+    {
+        return $this->belongsTo(User::class, 'moderateur_id');
+    }
 
 }

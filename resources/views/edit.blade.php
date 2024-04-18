@@ -68,10 +68,10 @@
             <option value="Très mauvais" {{ $experience->choix == 'Très mauvais' ? 'selected' : '' }}>Très mauvais</option>
         </select>
     </div>
-    <button type="submit" value="Enregistrer les modifications">Enregistrer les modifications</button>
+    <!-- <button type="submit" href="{{ route('experiences.update', $experience->id) }}" value="Enregistrer les modifications">Enregistrer les modifications</button> -->
+    <!-- <button type="submit" a href="{{ route('experiences.show', $experience->id) }}" value="Enregistrer les modifications">Enregistrer les modifications</button> -->
+    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
 
-    <!-- <input type="submit" value="Enregistrer les modifications" class="btn btn-primary"> -->
-    <!-- <input type="submit" href="{{ route('experiences.update', $experience->id) }}" value="Enregistrer les modifications"></input> -->
 </form>
 </form>
 </form>
@@ -87,55 +87,7 @@ body {
         color: #333;
         background-color: #f4f4f4;
     }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* En-tête */
-    h1 {
-        font-size: 2.5rem;
-        color: #2c3e50;
-        margin-bottom: 20px;
-    }
-
-    /* Champs du formulaire */
-    p {
-        margin-bottom: 10px;
-    }
-
-    p strong {
-        font-weight: bold;
-        color: #2c3e50;
-    }
-
-    /* Modifications */
-    .modifications {
-        margin-top: 30px;
-    }
-
-    .modifications h2 {
-        font-size: 1.8rem;
-        color: #2c3e50;
-        margin-bottom: 10px;
-    }
-
-    .modifications p {
-        margin-bottom: 5px;
-        color: #7f8c8d;
-    }
-
-    /* Boutons */
-    .buttons {
-        margin-top: 30px;
-        text-align: right;
-    }
-
-    input[type="submit" i] {
+    button, #button {
     background-color: #ccd100; /* Vert */
     color: white;
     padding: 12px 20px; /* Ajustez la taille du bouton */
@@ -147,21 +99,7 @@ body {
     margin-top: 2%;
     }
 
-    input[type="submit" i]:hover{
+    button:hover, #button:hover{
         background-color: #45a049; /* Variation de couleur au survol */
     }
-
-    #retour{
-        display: inline-block;
-  padding: 10px 20px;
-  background-color: #6c757d;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-#retour:hover {
-  background-color: #5a6268;
-}
 </style>

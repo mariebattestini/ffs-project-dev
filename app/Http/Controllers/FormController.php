@@ -35,12 +35,7 @@ class FormController extends Controller
             'description' => 'required',
             'analyse_evenement' => 'required',
             'choix' => 'required',
-            'titre' => 'required|unique:posts|max:255'
-        ], [
-            'numero.numeric' => 'Le numéro de téléphone doit être un nombre.',
-            'numero.digits' => 'Le numéro de téléphone doit comporter 10 chiffres.',
-            'email.email' => 'L\'adresse email n\'est pas valide.',
-            'date.date' => 'La date n\'est pas valide.',
+            'titre' => 'required'
         ]);
 
 

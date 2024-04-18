@@ -1,3 +1,8 @@
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <!-- resources/views/experiences/show.blade.php -->
 <h1>{{ $experience->titre }}</h1>
 
@@ -17,18 +22,16 @@
 
 
 <!-- Afficher les messages de modification -->
+
+
 @if ($experience->modifications && $experience->modifications->isNotEmpty())
     <h2>Modifications</h2>
     @foreach ($experience->modifications as $modification)
-        <p>Modifié le {{ $modification->created_at instanceof \Carbon\Carbon ? $modification->created_at->format('d/m/Y H:i:s') : '' }} par {{ $modification->moderateur->nom }} {{ $modification->moderateur->prenom }}</p>
+    <p>Modifié le {{ $modification->created_at instanceof \Carbon\Carbon ? $modification->created_at->setTimezone('Europe/Paris')->format('d/m/Y H:i:s') : '' }} par {{ \Auth::user()->name }}</p>
     @endforeach
 @endif
 
-@if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+
 
 <!-- Boutons pour publier et retourner à la liste -->
 <a id="button" href="{{ route('experiences.edit', $experience->id) }}">Modifier</a>
@@ -125,5 +128,3 @@
 #retour:hover {
   background-color: #5a6268;
 }
-
-</style>

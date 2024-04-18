@@ -17,5 +17,5 @@ class Experience extends Model
     {
         return $this->hasMany(Modification::class);
     }
-    protected $guarded = ['_token', '_method'];
+    // protected $guarded = ['_token', '_method'];
 }

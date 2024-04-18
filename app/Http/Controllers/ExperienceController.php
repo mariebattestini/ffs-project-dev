@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Experience; // Assurez-vous d'importer le modèle Experience
+use App\Models\Modification;
 
 class ExperienceController extends Controller
 {
@@ -66,16 +67,19 @@ class ExperienceController extends Controller
      */
     public function update(Request $request, Experience $experience)
     {
-        // Mettre à jour les champs de l'expérience avec les données du formulaire
-        $experience->update($request->all());
+        if (\Auth::check()) {
+            // Mettre à jour les champs de l'expérience avec les données du formulaire
+            $experience->update($request->except('_token', '_method'));
 
-        // Enregistrer la modification dans le tableau
-        $modification = new Modification();
-        $modification->experience_id = $experience->id;
-        $modification->moderateur_id = Auth::id(); // Supposant que vous avez un utilisateur authentifié
-        $modification->save();
-
-        return redirect()->back()->with('success', 'L\'expérience a été modifiée avec succès.');
+            // Enregistrer la modification dans le tableau
+            $modification = new Modification();
+            $modification->experience_id = $experience->id;
+            $modification->moderateur_id = \Auth::id();
+            $modification->save();
+            return redirect()->route('experiences.show', $experience->id)->with('success', 'L\'expérience a été modifiée avec succès.');
+        } else {
+            return redirect()->back()->with('error', 'Vous devez être authentifié pour modifier une expérience.');
+        }
 
     }
 
