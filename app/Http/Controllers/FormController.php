@@ -22,30 +22,27 @@ class FormController extends Controller
 
     public function store(Request $request)
     {
-        // Validation des données
         $validatedData = $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
-            'numero' => 'required|numeric|digits:10', // Numéro de téléphone à 10 chiffres
-            'email' => 'required|email', // Format d'email valide
-            'date' => 'required|date_format:Y-m-d', // Format de date attendu : YYYY-MM-DD
+            'numero' => 'required|numeric|digits:10',
+            'email' => 'required|email',
+            'date' => 'required|date_format:Y-m-d',
             'activite' => 'required',
             'nom_site_pratique' => 'required',
             'commune' => 'required',
             'description' => 'required',
             'analyse_evenement' => 'required',
             'choix' => 'required',
-            'titre' => 'required'
+            'titre' => 'required',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
 
 
-        // Création d'une nouvelle instance du modèle Form
         $form = Form::create($validatedData);
 
-        // Ajouter un message de succès à la session flash
         $request->session()->flash('success', 'Expérience enregistrée avec succès.');
 
-        // Rediriger vers la page d'accueil
         return redirect('/');
     }
 

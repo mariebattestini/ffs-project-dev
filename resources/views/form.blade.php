@@ -66,8 +66,11 @@
         <option value="Très mauvais">Très mauvais</option>
     </select>
 </div>
+    <div class="form-group captcha-container">
     {!! NoCaptcha::renderJs() !!}
     {!! NoCaptcha::display() !!}
+</div>
+
 
     <input type="submit" onclick="return confirm('Êtes-vous sûr que vous voulez envoyer ce formulaire ?')" class="btn btn-primary" value=Envoyer></input>
 </form>
