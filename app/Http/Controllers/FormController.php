@@ -25,7 +25,6 @@ class FormController extends Controller
         $validatedData = $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
-            'numero' => 'required|numeric|digits:10',
             'email' => 'required|email',
             'date' => 'required|date_format:Y-m-d',
             'activite' => 'required',

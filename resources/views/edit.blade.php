@@ -19,11 +19,6 @@
     </div>
 
     <div class="form-group">
-        <label for="numero">Numéro de téléphone :</label>
-        <input type="text" name="numero" id="numero" value="{{ $experience->numero }}" class="form-control" required>
-    </div>
-
-    <div class="form-group">
         <label for="date">Date de naissance :</label>
         <input type="date" name="date" id="date" value="{{ $experience->date }}" class="form-control" required>
     </div>

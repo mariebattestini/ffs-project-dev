@@ -8,20 +8,22 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::table('experiences', function (Blueprint $table) {
-            //
+            $table->string('numero')->nullable();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::table('experiences', function (Blueprint $table) {
-            //
+            $table->dropColumn('numero');
         });
     }
+
 };

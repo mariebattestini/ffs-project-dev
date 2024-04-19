@@ -16,12 +16,6 @@
 
     </div>
     <div class="form-group">
-        <label for="numero">Numéro de téléphone :</label>
-        <input type="numero" name="numero" id="numero" class="form-control">
-    </div>
-
-
-    <div class="form-group">
         <label for="date">Date de naissance :</label>
         <input type="date" name="date" id="date" class="form-control">
     </div>
@@ -80,11 +74,12 @@
         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
     </span>
 @endif
-@if(session('success'))
+
+<!-- @if(session('success'))
     <script>
         alert("{{ session('success') }}");
     </script>
-@endif
+@endif -->
 
 <style>
    body {

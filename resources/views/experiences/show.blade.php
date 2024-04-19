@@ -9,7 +9,6 @@
 <!-- Afficher les champs du formulaire de saisie -->
 <p>Nom : {{ $experience->nom }}</p>
 <p>Prénom : {{ $experience->prenom }}</p>
-<p>Numéro : {{ $experience->numero }}</p>
 <p>Email : {{ $experience->email }}</p>
 <p>Date : {{ $experience->date }}</p>
 <p>Activité : {{ $experience->activite }}</p>
