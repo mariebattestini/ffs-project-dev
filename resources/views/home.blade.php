@@ -26,8 +26,7 @@
         <section id="hero">
             <h1>Retour d’expérience FFS</h1>
         </section>
-        <section>
-
+    <section>
 </section>
         <section>
     <h2>Expériences publiées</h2>
@@ -43,7 +42,6 @@
         <tbody>
             @foreach ($publishedExperiences as $experience)
                 <tr>
-                <!-- <td>{{ $experience->published_at instanceof \Carbon\Carbon ? $experience->published_at->format('d/m/Y') : '' }}</td> -->
                 <td>{{ \Carbon\Carbon::parse($experience->published_at)->format('d/m/Y') }}</td>
                     <td>{{ $experience->activite }}</td>
                     <td>{{ $experience->titre }}</td>
@@ -85,55 +83,45 @@
 </html>
  
 <style>
-    /* Style pour la section des expériences publiées */
 section {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-/* Style pour le titre */
 h2 {
     margin-bottom: 10px;
 }
 
-/* Style pour la table */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-/* Style pour l'en-tête de la table */
 thead {
     background-color: #f2f2f2;
 }
 
-/* Style pour les cellules de l'en-tête */
 th {
     padding: 10px;
     text-align: left;
 }
 
-/* Style pour les cellules du corps de la table */
 td {
     padding: 10px;
 }
 
-/* Style pour les lignes impaires */
 tbody tr:nth-child(odd) {
     background-color: #f9f9f9;
 }
 
-/* Style pour les lignes paires */
 tbody tr:nth-child(even) {
     background-color: #ffffff;
 }
 
-/* Style pour chaque ligne de la table */
 tbody tr {
     border-bottom: 1px solid #ddd;
 }
 
-/* Style pour la dernière ligne de la table */
 tbody tr:last-child {
     border-bottom: none;
 }

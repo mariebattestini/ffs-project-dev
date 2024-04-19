@@ -3,7 +3,7 @@
 <form action="{{ route('experiences.update', $experience->id) }}" method="POST">
     @csrf
     @method('PUT')
-    <!-- Champs du formulaire --><div class="form-group">
+  <div class="form-group">
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" value="{{ $experience->nom }}" class="form-control" required>
     </div>
@@ -63,8 +63,6 @@
             <option value="Très mauvais" {{ $experience->choix == 'Très mauvais' ? 'selected' : '' }}>Très mauvais</option>
         </select>
     </div>
-    <!-- <button type="submit" href="{{ route('experiences.update', $experience->id) }}" value="Enregistrer les modifications">Enregistrer les modifications</button> -->
-    <!-- <button type="submit" a href="{{ route('experiences.show', $experience->id) }}" value="Enregistrer les modifications">Enregistrer les modifications</button> -->
     <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
 
 </form>
@@ -75,7 +73,6 @@
 
 
 <style>
-/* Styles généraux */
 body {
         font-family: Arial, sans-serif;
         line-height: 1.6;
@@ -83,9 +80,9 @@ body {
         background-color: #f4f4f4;
     }
     button, #button {
-    background-color: #ccd100; /* Vert */
+    background-color: #ccd100; 
     color: white;
-    padding: 12px 20px; /* Ajustez la taille du bouton */
+    padding: 12px 20px; 
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -95,6 +92,6 @@ body {
     }
 
     button:hover, #button:hover{
-        background-color: #45a049; /* Variation de couleur au survol */
+        background-color: #45a049; 
     }
 </style>

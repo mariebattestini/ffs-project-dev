@@ -6,11 +6,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ValidateFormController;
 use Illuminate\Support\Facades\Route;
 
-// use App\Http\Controllers\HomeController;
-
-// use App\Http\Controllers\Home; // Ajoutez cette ligne
-
-
 
 Route::get('/', function () {
     return view('home');
@@ -72,14 +67,3 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/experiences/{experience}/edit', [ExperienceController::class, 'edit'])->name('experiences.edit');
 Route::put('/experiences/{experience}', [ExperienceController::class, 'update'])->name('experiences.update');
-
-// // Route::get('/', 'Home@index');
-// Route::get('/', 'HomeController@index');
-
-// routes/web.php
-
-// Route::get('/', function () {
-//     // Logique pour récupérer les données à afficher sur la page d'accueil
-//     $publishedExperiences = App\Models\Experience::whereNotNull('published_at')->orderBy('published_at', 'desc')->get();
-//     return view('home', compact('publishedExperiences'));
-// })->name('home');

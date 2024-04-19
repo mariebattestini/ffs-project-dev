@@ -1,12 +1,6 @@
-@if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-<!-- resources/views/experiences/show.blade.php -->
+
 <h1>{{ $experience->titre }}</h1>
 
-<!-- Afficher les champs du formulaire de saisie -->
 <p>Nom : {{ $experience->nom }}</p>
 <p>Prénom : {{ $experience->prenom }}</p>
 <p>Email : {{ $experience->email }}</p>
@@ -20,9 +14,6 @@
 <p>Titre : {{ $experience->titre }}</p>
 
 
-<!-- Afficher les messages de modification -->
-
-
 @if ($experience->modifications && $experience->modifications->isNotEmpty())
     <h2>Modifications</h2>
     @foreach ($experience->modifications as $modification)
@@ -31,8 +22,6 @@
 @endif
 
 
-
-<!-- Boutons pour publier et retourner à la liste -->
 <a id="button" href="{{ route('experiences.edit', $experience->id) }}">Modifier</a>
 
 <form action="{{ route('experiences.publish', $experience->id) }}" method="POST">
@@ -43,7 +32,6 @@
 
 
 <style>
-    /* Styles généraux */
     body {
         font-family: Arial, sans-serif;
         line-height: 1.6;
@@ -59,14 +47,12 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* En-tête */
     h1 {
         font-size: 2.5rem;
         color: #2c3e50;
         margin-bottom: 20px;
     }
 
-    /* Champs du formulaire */
     p {
         margin-bottom: 10px;
     }
@@ -76,7 +62,6 @@
         color: #2c3e50;
     }
 
-    /* Modifications */
     .modifications {
         margin-top: 30px;
     }
@@ -92,38 +77,37 @@
         color: #7f8c8d;
     }
 
-    /* Boutons */
     .buttons {
         margin-top: 30px;
         text-align: right;
     }
 
     button, #button {
-    background-color: #ccd100; /* Vert */
-    color: white;
-    padding: 12px 20px; /* Ajustez la taille du bouton */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: medium;
-    margin-top: 2%;
+        background-color: #ccd100;
+        color: white;
+        padding: 12px 20px; 
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: medium;
+        margin-top: 2%;
     }
 
     button:hover, #button:hover{
-        background-color: #45a049; /* Variation de couleur au survol */
+        background-color: #45a049; 
     }
 
     #retour{
         display: inline-block;
-  padding: 10px 20px;
-  background-color: #6c757d;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
+        padding: 10px 20px;
+        background-color: #6c757d;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
 
-#retour:hover {
-  background-color: #5a6268;
-}
+    #retour:hover {
+        background-color: #5a6268;
+    }
