@@ -29,7 +29,6 @@
         <section>
 
 </section>
-
         <section>
     <h2>Expériences publiées</h2>
     <table>

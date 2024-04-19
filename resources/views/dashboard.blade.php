@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Les expériences') }}
         </h2>
     </x-slot>
 
@@ -31,7 +31,7 @@
             <td class="border px-4 py-2">{{ $experience->titre }}</td>
             <td class="border px-4 py-2">{{ $experience->nom_site_pratique }}</td>
             <td class="border px-4 py-2">
-                <a href="{{ route('experiences.show', $experience->id) }}" class="text-blue-500 hover:text-blue-700">Voir</a>
+                <a id="button" href="{{ route('experiences.show', $experience->id) }}" class="text-blue-500 hover:text-blue-700">Voir</a>
             </td>
         </tr>
     @endforeach
@@ -44,3 +44,19 @@
 </div>
 </div>
 </x-app-layout>
+
+<style>
+#button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ccd100;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease; 
+}
+
+#button:hover {
+    background-color: #45a049; 
+}
+</style>

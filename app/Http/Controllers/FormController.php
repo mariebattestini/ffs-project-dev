@@ -34,7 +34,6 @@ class FormController extends Controller
             'analyse_evenement' => 'required',
             'choix' => 'required',
             'titre' => 'required',
-            'g-recaptcha-response' => 'required|captcha'
         ]);
 
 
