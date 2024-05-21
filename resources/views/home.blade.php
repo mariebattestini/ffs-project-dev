@@ -37,6 +37,7 @@
                 <th>Activité</th>
                 <th>Titre</th>
                 <th>Nom du site de pratique</th>
+                <th>Voir la page</th>
             </tr>
         </thead>
         <tbody>
@@ -46,6 +47,7 @@
                     <td>{{ $experience->activite }}</td>
                     <td>{{ $experience->titre }}</td>
                     <td>{{ $experience->nom_site_pratique }}</td>
+                    <td id="button" href="{{ route('experiences.show', $experience->id) }}" class="text-blue-500 hover:text-blue-700">Voir</td>
                 </tr>
             @endforeach
         </tbody>
