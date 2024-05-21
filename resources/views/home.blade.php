@@ -41,16 +41,23 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($publishedExperiences as $experience)
-                <tr>
-                <td>{{ \Carbon\Carbon::parse($experience->published_at)->format('d/m/Y') }}</td>
-                    <td>{{ $experience->activite }}</td>
-                    <td>{{ $experience->titre }}</td>
-                    <td>{{ $experience->nom_site_pratique }}</td>
-                    <td><a href="{{ route('experience.show', $experience->id) }}">Voir</a></td>
-                </tr>
-            @endforeach
-        </tbody>
+    @foreach ($publishedExperiences as $experience)
+        <tr>
+            <td>{{ \Carbon\Carbon::parse($experience->published_at)->format('d/m/Y') }}</td>
+            <td>{{ $experience->activite }}</td>
+            <td>{{ $experience->titre }}</td>
+            <td>{{ $experience->nom_site_pratique }}</td>
+            <td>
+                @if ($experience->id)
+                    <a href="{{ route('experience.show', $experience->id) }}">Voir</a>
+                @else
+                    Voir
+                @endif
+            </td>
+        </tr>
+    @endforeach
+</tbody>
+
     </table>
 </section>
 

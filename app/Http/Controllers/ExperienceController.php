@@ -15,11 +15,16 @@ class ExperienceController extends Controller
 
     public function index()
     {
-        $unpublishedExperiences = Experience::whereNull('published_at')->get();
-        return view('dashboard', compact('unpublishedExperiences'));
-        $experiences = Experience::all();
-        return view('experiences.index', compact('experiences'));
+        // Vérifier si l'utilisateur est authentifié
+        if (auth()->check()) {
+            $unpublishedExperiences = Experience::whereNull('published_at')->get();
+            return view('dashboard', compact('unpublishedExperiences'));
+        } else {
+            $experiences = Experience::all();
+            return view('experiences.index', compact('experiences'));
+        }
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -79,6 +84,11 @@ class ExperienceController extends Controller
             return redirect()->back()->with('error', 'Vous devez être authentifié pour modifier une expérience.');
         }
 
+    }
+
+    public function showUnpublished(Experience $experience)
+    {
+        return view('unpublished-experiences.show', compact('experience'));
     }
 
 

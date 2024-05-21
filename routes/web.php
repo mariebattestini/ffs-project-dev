@@ -67,7 +67,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/experiences/{experience}/edit', [ExperienceController::class, 'edit'])->name('experiences.edit');
 Route::put('/experiences/{experience}', [ExperienceController::class, 'update'])->name('experiences.update');
-Route::get('/experiences/{experience}', [ExperienceController::class, 'show'])->name('experience.show');
+// Route::get('/experiences/{experience}', [ExperienceController::class, 'show'])->name('experience.show');
 
 
 // Autres importations...
@@ -85,4 +85,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences.index');
 });
 
-// Autres routes...
+Route::get('/unpublished-experiences/{experience}', [ExperienceController::class, 'showUnpublished'])->name('unpublished-experiences.show');

@@ -31,7 +31,7 @@
             <td class="border px-4 py-2">{{ $experience->titre }}</td>
             <td class="border px-4 py-2">{{ $experience->nom_site_pratique }}</td>
             <td class="border px-4 py-2">
-                <a id="button" href="{{ route('experiences.show', $experience->id) }}" class="text-blue-500 hover:text-blue-700">Voir</a>
+            <a id="button" href="{{ route('unpublished-experiences.show', $experience->id) }}" class="text-blue-500 hover:text-blue-700">Voir</a>
             </td>
         </tr>
     @endforeach
