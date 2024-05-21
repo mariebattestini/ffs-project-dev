@@ -67,3 +67,22 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/experiences/{experience}/edit', [ExperienceController::class, 'edit'])->name('experiences.edit');
 Route::put('/experiences/{experience}', [ExperienceController::class, 'update'])->name('experiences.update');
+Route::get('/experiences/{experience}', [ExperienceController::class, 'show'])->name('experience.show');
+
+
+// Autres importations...
+
+Route::get('/', function () {
+    $publishedExperiences = App\Models\Experience::whereNotNull('published_at')->orderBy('published_at', 'desc')->get();
+    return view('home', compact('publishedExperiences'));
+})->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/experiences/{experience}', [ExperienceController::class, 'show'])->name('experience.show');
+    Route::get('/experiences/{experience}/edit', [ExperienceController::class, 'edit'])->name('experiences.edit');
+    Route::put('/experiences/{experience}', [ExperienceController::class, 'update'])->name('experiences.update');
+    Route::post('/experiences/{experience}/publish', [ExperienceController::class, 'publish'])->name('experiences.publish');
+    Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences.index');
+});
+
+// Autres routes...

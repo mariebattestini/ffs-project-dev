@@ -57,10 +57,8 @@ class ExperienceController extends Controller
     // Contrôleur ExperienceController
     public function show(Experience $experience)
     {
-        $experience->load('modifications');
         return view('experiences.show', compact('experience'));
     }
-
 
     /**
      * Update the specified resource in storage.
