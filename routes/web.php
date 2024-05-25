@@ -11,6 +11,8 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+// routes/web.php
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

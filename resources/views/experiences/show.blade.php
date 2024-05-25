@@ -29,6 +29,8 @@
     <button type="submit" onclick="return confirm('Êtes-vous sûr que vous voulez publier définitivement cette expérience ?')">Publier</button>
 </form>
 <a id="retour" href="{{ route('experiences.index') }}">Retour à la liste des expériences à modérer</a>
+<a id="retour" href="{{ route('home') }}">Retour à la page d'accueil</a>
+
 
 
 <style>
