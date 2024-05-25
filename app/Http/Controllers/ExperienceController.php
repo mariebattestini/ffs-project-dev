@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Experience; // Assurez-vous d'importer le modèle Experience
 use App\Models\Modification;
 
+
 class ExperienceController extends Controller
 {
     /**
@@ -98,5 +99,13 @@ class ExperienceController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    // app/Http/Controllers/ExperienceController.php
+
+    public function showPublished()
+    {
+        $publishedExperiences = Experience::whereNotNull('published_at')->get();
+        return view('published_experience.blade', compact('publishedExperiences'));
     }
 }

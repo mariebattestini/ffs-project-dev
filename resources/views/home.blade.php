@@ -59,7 +59,7 @@
 </tbody>
 
     </table>
-</section>
+    <a href="{{ route('experiences.published') }}" class="btn btn-primary">Voir les expériences publiées</a></section>
 
  
         <section id="CTA">

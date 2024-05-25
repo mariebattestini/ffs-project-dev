@@ -88,3 +88,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/unpublished-experiences/{experience}', [ExperienceController::class, 'showUnpublished'])->name('unpublished-experiences.show');
+
+Route::get('/experiences-publiees', [ExperienceController::class, 'showPublished'])->name('experiences.published');
