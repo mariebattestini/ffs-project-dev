@@ -1,6 +1,9 @@
 <!-- resources/views/published_experience/blade.blade.php -->
 <html>
 <body>
+    <h1>
+        Toutes les expériences publiées
+    </h1>
 <table>
     <thead>
         <tr>
@@ -29,15 +32,30 @@
         @endforeach
     </tbody>
 </table>
+
 <a id="retour" href="{{ route('home') }}">Retour à la page d'accueil</a>
 </body>
 </html> 
 
 <style>
-
+   #retour{
+    cursor: pointer;
+    background-color: blue;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    text-decoration:none;
+    }
+    #retour:hover{
+        background-color: #007bff;
+    }
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 2%;
+
 }
 
 thead {

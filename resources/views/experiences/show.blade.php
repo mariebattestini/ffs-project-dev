@@ -22,7 +22,7 @@
 @endif
 
 
-<a id="button" href="{{ route('experiences.edit', $experience->id) }}">Modifier</a>
+<a id="button" href="{{ route('experiences.edit', $experience->id) }}">Modifier l'expérience</a>
 
 <form action="{{ route('experiences.publish', $experience->id) }}" method="POST">
     @csrf

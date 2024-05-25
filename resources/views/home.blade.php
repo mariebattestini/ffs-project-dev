@@ -59,12 +59,12 @@
 </tbody>
 
     </table>
-    <a href="{{ route('experiences.published') }}" class="btn btn-primary">Voir les expériences publiées</a></section>
+    <a href="{{ route('experiences.published') }}" class="btn btn-primary">Voir toutes les expériences publiées</a></section>
 
  
         <section id="CTA">
             <button onclick="window.location='{{ route('form') }}'">Partager son expérience</button>
-            <button onclick="window.location='{{ route('register') }}'">Devenir modérateur</button>
+            <!-- <button onclick="window.location='{{ route('register') }}'">Devenir modérateur</button> -->
         </section>
  
     </main>
@@ -92,6 +92,19 @@
 </html>
  
 <style>
+    a.btn.btn-primary{
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    text-decoration:none;
+    }
+    a.btn.btn-primary:hover{
+        background-color: #007bff;
+    }
 section {
     margin-top: 20px;
     margin-bottom: 20px;
